@@ -1,2 +1,2 @@
 # Bioinformatics_project
- project for the course bioinformatics UNIMI, 2021-2022
+ project for bioinformatics course of Professor G.Valentini - UNIMI, 2021-2022
