@@ -23,6 +23,9 @@ Therefore, gene expression involves non-coding regions of DNA called cis-regulat
 - enhancers: DNA sequences that help induce transcription of a gene, but they're far from the gene itself (this makes more difficult the identification of these regions) 
 << The CRRs, through interactions with proteins and TFs, help specify the formation of different cell types and to respondo to changing physiological conditions. Deciphering the active CRRs in each cell type is a fundamental step to uncover the misregulations underlying numerous human genetic diseas >> 
 
+### Goal of the project
+This project aims to design a good experimental setup for a classification problem on bioinformatics data. The project focuses on learning how to desing model and experimental approaches to obtain statistically reliable results. 
+
 ### Dataset
 <i> (retrieve_dataset.py, retrieve_sequences) </i>
 
@@ -32,9 +35,6 @@ Therefore, gene expression involves non-coding regions of DNA called cis-regulat
 In this work, I focues my attention on predicting enhancers and promoters regions in a single cell line A549. 
 
 Cell line A549 is derived from a 58 year old Caucasian male and was established in 1972 by D.J. Giard, et al., through an explant culture of adenocarcinomic lung tissue
-
-#### Goal of the project
-This project aims to design a good experimental setup for a classification problem on bioinformatics data. The project focuses on learning how to desing model and experimental approaches to obtain statistically reliable results. 
 
 #### Labels and threshold
 
