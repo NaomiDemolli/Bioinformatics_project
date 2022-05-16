@@ -41,7 +41,7 @@ This project aims to design a good experimental setup for a classification probl
 First of all, it may be useful to plot the distribution of the values of the labels
 
 <p align="center">
-  <img width="400" height="300" src="https://github.com/NaomiDemolli/Bioinformatics_project/blob/main/code/img/labels_distribution.jpg">
+  <img width="400" height="200" src="https://github.com/NaomiDemolli/Bioinformatics_project/blob/main/code/img/labels_distribution.jpg">
 </p>
 
 For both promoters and enhancers the distribution is unbalanced (almost exponential), moreover the ranges of values are very different from each other.
