@@ -50,7 +50,7 @@ At this point, I need to binarize labels in order to convert the real values of 
 - the FANTOM suggested threshold at 1TPMs for both promoters and enhancers, this is good for promoters with ad unbalance of 0.204, but on this cell line it would cause a high unbalance of 0.0037 for enhancers. 
 
 <p align="center">
-  <img width="250" height="100" src="(https://github.com/NaomiDemolli/Bioinformatics_project/blob/main/code/img/class_count_1threa.jpg)">
+  <img width="250" height="100" src="https://github.com/NaomiDemolli/Bioinformatics_project/blob/main/code/img/class_count_1threa.jpg">
 </p>
 
 - another approach suggested by FANTOM authors is setting threshold at 1TPMs, dropping values between 0 and 1 for both promoters and enhancers. This reduces the unbalance both for promoters and enhancers, respectively at 0.255 and 0.0038. Focusing on the highest unbalance, namely that of enhancers, this decrease is not enough to remove part of the samples from the dataset and the improvement for promoters' labels is small. 
@@ -59,7 +59,7 @@ At this point, I need to binarize labels in order to convert the real values of 
   <img width="250" height="100" src="https://github.com/NaomiDemolli/Bioinformatics_project/blob/main/code/img/class_count_drop_1threa.jpg">
 </p>
 
-- in the end, I decided to choose two different values for the thresholds - remembering that the ranges of values were very different - and don't drop values between 0 and 1: for promoters I left the suggested threshold of 1TPMs and an unbalance of 0.204, for enhancers I chose threshold at 0TPMs - almost all values of enhancers labels are 0 (third quartile is 0) - with an unbalance of  0.057.
+- in the end, I decided to choose two different values for the thresholds - remembering that the ranges are very different - and don't drop values between 0 and 1: for promoters I left the suggested threshold of 1TPMs and an unbalance of 0.204, for enhancers I chose threshold at 0TPMs - almost all values of enhancers labels are 0 (third quartile is 0) - with an unbalance of  0.057.
 
 I'm not focusing on the biological meaning of my choices, the threshold are chosen to obtain a dataset useful for learning. 
 
