@@ -64,9 +64,30 @@ At this point, I need to binarize labels in order to convert the real values of 
 I'm not focusing on the biological meaning of my choices, the threshold are chosen to obtain a dataset useful for learning. 
 
 #### Pre-processing 
-TO WRITE
+First thing to do is check the rate between number of samples and features in the dataset: in the case of promoters is 2080.9, while 1318.3 for enhancers. 
+
+The second step is imputation of missing values: 
+- for promoters only the 0.007% is NaN values, the sample with most values has 2 NaN values out of 48 and the feature with the most missing values has 189 NaN values out of 99881 
+- for enhancers only the 0.001% is NaN values, the sample with most values has 1 NaN values out of 48 and the feature with the most missing values has 32 NaN values out of 63285
+There are several approaches to replace NaN values, I decided to use nearest neighbors imputation: each missing feature is imputed using values from k nearest neighbors that have a value for the feature. The features of the neighbors are averaged uniformly, K is an hyperparams and is set to 5 in this project.
+
+In addition, it must be check the presence of features whose values are constant: these features don’t provide any information to the target feature and are redundant data available in the dataset. In the epigenomic data of cell line A549 there are no costant features for either promoters or enhancers.
+
+In the end, it is necessary to normalize the data: I used a better version of Z-score named Robust Scaler, that scales features using statistics that are robust to outliers (this Scaler removes the median and scales the data according to the quantile range)
+
 #### Correlations
-TO WRITE
+Once the pro-processed dataset is obtained, it is needed to verify the correlation between features and output and the correlation between features. 
+
+Correlation is a statistical measure that tells us about the association between the two variables, it describes how one variable behaves if there is some change in the other variable. I used two different correlation coefficient, Pearson and Spearman. 
+- Pearson coefficient measures the linear correlation between to variables (it has a value between +1 and -1, with +1 total positive linear correlation, 0 no linear correlation and -1 negative linear correlation)
+- Spearman coefficient assesses how well the relationship between two variables can be described using a monotonic function (perfect Spearman correlation of +1 or −1 occurs when each of the variables is a perfect monotone function of the other)
+
+For promoters the features EHMT2, FOSB and RNF are considered unrelated to the output for Pearson, the feature ZFP36 is evaluated uncorrelated with output for Spearman. For enhancers, both Pearson's test and Spearman's test identify 2 unrelated features with the output: ZC3H11A and CBX2 are not linearly correlated with output and features CBX2 and KDM5A are not correlated with output for Spearman's test. 
+
+I used same correlation tests in order to identify interrelated features, no single characteristic turns out to be extremely correlated with another. 
+
+I then proceeded to eliminate the features not correlated to the output.
+
 #### Features selection
 TO WRITE
 ### Model and learning
