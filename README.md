@@ -93,6 +93,13 @@ I used same correlation tests in order to identify interrelated features, no sin
 I then proceeded to eliminate the features not correlated to the output.
 
 #### Features selection
-TO WRITE
+Features selection is a fundamental step in many machine learning pipelines, I would like to select only the relevant features from the whole set. In this project I used Boruta.
+
+The algorithm uses a wrapper approach built around a random forest classifier (Boruta is a god of the forest in the Slavic mythology) [1]
+
 ### Model and learning
 TO DO
+
+
+### Bibliography
+[1] Kursa, M. B., & Rudnicki, W. R. (2010). Feature Selection with the Boruta Package. Journal of Statistical Software, 36(11), 1–13. https://doi.org/10.18637/jss.v036.i11
