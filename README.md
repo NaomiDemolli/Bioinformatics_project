@@ -23,7 +23,7 @@ Genes also include parts of DNA that are not copied into RNA, each genes contain
 Therefore, gene expression involves non-coding regions of DNA called cis-regulatory:
 - promoters: sequences of nucleotides, located near a gene, which represent the starting point of the transcription
 - enhancers: DNA sequences that help induce transcription of a gene, but they're far from the gene itself (this makes more difficult the identification of these regions) 
-<< The CRRs, through interactions with proteins and TFs, help specify the formation of different cell types and to respondo to changing physiological conditions. Deciphering the active CRRs in each cell type is a fundamental step to uncover the misregulations underlying numerous human genetic diseas >> 
+<< The CRRs, through interactions with proteins and TFs, help specify the formation of different cell types and to respond to changing physiological conditions. Deciphering the active CRRs in each cell type is a fundamental step to uncover the misregulations underlying numerous human genetic diseas >> 
 
 ### Goal of the project
 This project aims to design a good experimental setup for a classification problem on bioinformatics data. The project focuses on learning how to desing model and experimental approaches to obtain statistically reliable results. 
@@ -74,6 +74,7 @@ First thing to do is check the rate between number of samples and features in th
 The second step is imputation of missing values: 
 - for promoters only the 0.007% is NaN values, the sample with most values has 2 NaN values out of 48 and the feature with the most missing values has 189 NaN values out of 99881 
 - for enhancers only the 0.001% is NaN values, the sample with most values has 1 NaN values out of 48 and the feature with the most missing values has 32 NaN values out of 63285
+
 There are several approaches to replace NaN values, I decided to use nearest neighbors imputation: each missing feature is imputed using values from k nearest neighbors that have a value for the feature. The features of the neighbors are averaged uniformly, K is an hyperparams and is set to 5 in this project.
 
 In addition, it must be check the presence of features whose values are constant: these features don’t provide any information to the target feature and are redundant data available in the dataset. In the epigenomic data of cell line A549 there are no costant features for either promoters or enhancers.
