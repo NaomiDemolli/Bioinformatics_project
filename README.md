@@ -1,5 +1,6 @@
 # Bioinformatics_project
  project for bioinformatics course of Professor G.Valentini - UNIMI, 2021-2022
+ inspired by Luca Cappelletti's laboratory material https://github.com/LucaCappelletti94/bioinformatics_practice
 
 ### Biology introduction
 
