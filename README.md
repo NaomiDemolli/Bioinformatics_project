@@ -95,7 +95,9 @@ I then proceeded to eliminate the features not correlated to the output.
 #### Features selection
 Features selection is a fundamental step in many machine learning pipelines, I would like to select only the relevant features from the whole set. In this project I used Boruta.
 
-The algorithm uses a wrapper approach built around a random forest classifier (Boruta is a god of the forest in the Slavic mythology) [1]
+<i> The algorithm Boruta uses a wrapper approach built around a random forest classifier (Boruta is a god of the forest in the Slavic mythology). The importance measure of an attribute is obtained as the loss of accuracy of classification caused by the random permutation of attribute values between objects. Then the average and standard deviation of the accuracy loss are computed. Alternatively, the Z score computed by dividing the average loss by its standard deviation can be used as the importance measure, unfortunately the Z score is not directly related to the statistical significance of the feature importance returned by the random forest algorithm Since we cannot use Z score directly to measure importance, we need some external reference to decide whether the importance of any given attribute is significant. The importance of a shadow attribute can be nonzero only due to random uctuations. Thus the set of importances of shadow attributes is used as a reference for deciding which attributes are truly important. </i> [1]
+
+Neither for promoter nor enhancers Boruta algorithm considers necessary to eliminate some features.
 
 ### Model and learning
 TO DO
