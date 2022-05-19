@@ -75,7 +75,7 @@ The second step is imputation of missing values:
 - for promoters only the 0.007% is NaN values, the sample with most values has 2 NaN values out of 48 and the feature with the most missing values has 189 NaN values out of 99881 
 - for enhancers only the 0.001% is NaN values, the sample with most values has 1 NaN values out of 48 and the feature with the most missing values has 32 NaN values out of 63285
 
-There are several approaches to replace NaN values, I decided to use nearest neighbors imputation: each missing feature is imputed using values from k nearest neighbors that have a value for the feature. The features of the neighbors are averaged uniformly, K is an hyperparams and is set to 5 in this project.
+There are several approaches to replace NaN values, I decided to use nearest neighbors imputation: each missing feature is imputed using values from k nearest neighbors that have a value for the feature. The features of the neighbors are averaged uniformly, K is an hyperparameter and is set to 5 in this project.
 
 In addition, it must be check the presence of features whose values are constant: these features don’t provide any information to the target feature and are redundant data available in the dataset. In the epigenomic data of cell line A549 there are no costant features for either promoters or enhancers.
 
