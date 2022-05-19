@@ -83,6 +83,7 @@ In the end, it is necessary to normalize the data: I used a better version of Z-
 
 #### Correlations
 <i> (correlations.py) </i>
+
 Once the pro-processed dataset is obtained, it is needed to verify the correlation between features and output and the correlation between features. 
 
 Correlation is a statistical measure that tells us about the association between the two variables, it describes how one variable behaves if there is some change in the other variable. I used two different correlation coefficient, Pearson and Spearman. 
