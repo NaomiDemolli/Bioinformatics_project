@@ -120,3 +120,6 @@ The folder result_barplot contains barplot summarizing the results
 
 ### Bibliography
 [1] Kursa, M. B., & Rudnicki, W. R. (2010). Feature Selection with the Boruta Package. Journal of Statistical Software, 36(11), 1–13. https://doi.org/10.18637/jss.v036.i11
+
+[2] Cappelletti, L. et al. (2020). Bayesian Optimization Improves Tissue-Specific Prediction of Active Regulatory Regions with Deep Neural Networks. 
+In Rojas, I.,Valenzuela, O., Rojas, F., Herrera, L., Ortu ̃no, F. (eds) Bioinformatics and Biomedical Engineering. IWBBIO 2020.
