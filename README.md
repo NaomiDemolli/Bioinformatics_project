@@ -104,7 +104,7 @@ Features selection is a fundamental step in many machine learning pipelines, I w
 Neither for promoter nor enhancers Boruta algorithm considers necessary to eliminate some features.
 
 ### Method
-In order to identify active cis-regulatory regions, I initially use models such as Perceptron, FFNN and CNN. For each model I develop a base version and then I compare their performances on the task. Subsequently I develop an optimized version only for FFNN and CNN in which the selection of hyper-parameters is made by Bayesian optmization. I finally verify that the perfomance of models that have hyper-parameters tuned are better.
+In order to identify active cis-regulatory regions, I initially use models such as Perceptron, FFNN and CNN. For each model I develop a base version and then I compare their performances on the task. Subsequently I develop an optimized version only for FFNN in which the selection of hyper-parameters is made by Bayesian optmization. I finally verify that the perfomance of model that have hyper-parameters tuned are better.
 
 All models are developed using Keras with the TensorFlow backend.
 
