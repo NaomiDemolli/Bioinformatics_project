@@ -110,6 +110,13 @@ All models are developed using Keras with the TensorFlow backend.
 
 The performances of each base model are evaluated on the test sets of 50 holdouts. Repeated Hold-hout method involves splitting the data into different sets (in this project one for training and the other for testing) for k iterations.
 
+### Results
+The folder performance contains excell file with the results of the training and testing of the model 
+
+The folder result_barplot contains barplot summarizing the results
+1) Folder base_models: metrics values for comparing different base models
+2) Folder tuned_ffnn: metrics values for comparing base FFNN and tuned FFNN (based on val_accuracy to select best model in optimization)
+3) Folder tuned_ffnn_AUPRC: metrics values for comparing base FFNN and tuned FFNN (based on AUPRC to select best model in optimization)
 
 ### Bibliography
 [1] Kursa, M. B., & Rudnicki, W. R. (2010). Feature Selection with the Boruta Package. Journal of Statistical Software, 36(11), 1–13. https://doi.org/10.18637/jss.v036.i11
