@@ -3,27 +3,15 @@ from boruta import BorutaPy
 from multiprocessing import cpu_count
 import numpy as np
 import pandas as pd
+from retrieve_preprocessed_dataset import *
 
-promoters = pd.read_csv('./pre_processed_dataset/epigenomes_promoters.csv', index_col = [0,1,2,3])
-enhancers = pd.read_csv('./pre_processed_dataset/epigenomes_enhancers.csv', index_col = [0,1,2,3])
-promoters_labels = pd.read_csv('./pre_processed_dataset/labels_promoters.csv', index_col = [0,1,2,3])
-enhancers_labels = pd.read_csv('./pre_processed_dataset/labels_enhancers.csv', index_col = [0,1,2,3])
-
-labels = {
-    "promoters": promoters_labels,
-    "enhancers": enhancers_labels
-}
-epigenomes = {
-    "promoters": promoters,
-    "enhancers": enhancers
-}
+epigenomes, labels = retrieve_epigenomes_labels()
 
 def execute_boruta_feature_selection(
     X_train: pd.DataFrame,
     y_train: np.ndarray,
     regression: bool,
-    max_iter: int = 100
-):
+    max_iter: int = 100 ):
     
     boruta_selector = BorutaPy(
         RandomForestClassifier(
@@ -43,8 +31,7 @@ def execute_boruta_feature_selection(
     if(len(discarded_features) == 0):
         print('there arent features to discard')
 
-    return kept_features, discarded_features
-
+    return(kept_features, discarded_features) 
 
 for region in ['promoters', 'enhancers']:
      execute_boruta_feature_selection(

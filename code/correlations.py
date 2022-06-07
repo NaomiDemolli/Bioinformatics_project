@@ -4,13 +4,17 @@ from tqdm.auto import tqdm
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from retrieve_preprocessed_dataset import *
+
+# DATASET
+epigenomes, labels = retrieve_epigenomes_labels()
 
 # FUNCTION
 
 def output_corr(corr:str, epigenomes:dict, p_value_threshold:float, uncorrelated:dict, labels:dict):
 
     for region, x in epigenomes.items():
-        print(f'\nCalcolo coefficiente di Pearson per {region}:\n')
+        print(f'\nCalcolo coefficiente di {corr} per {region}:\n')
         for col in x.columns:
             method = pearsonr if corr=='pearson' else spearmanr
             correlation, p_value = method(x[col].values, labels[region].values.ravel())
@@ -38,23 +42,6 @@ def features_correlation(corr:str, epigenomes:dict, p_value_thre:float, correlat
                         extr_corr[region].add(feature)
                     else:
                         extr_corr[region].add(column) 
-
-# DATASET
-
-promoters = pd.read_csv('./pre_processed_dataset/epigenomes_promoters.csv', index_col = [0,1,2,3])
-enhancers = pd.read_csv('./pre_processed_dataset/epigenomes_enhancers.csv', index_col = [0,1,2,3])
-promoters_labels = pd.read_csv('./pre_processed_dataset/labels_promoters.csv', index_col = [0,1,2,3])
-enhancers_labels = pd.read_csv('./pre_processed_dataset/labels_enhancers.csv', index_col = [0,1,2,3])
-
-epigenomes = {
-    "promoters": promoters,
-    "enhancers": enhancers
-}
-
-labels = {
-    "promoters": promoters_labels,
-    "enhancers": enhancers_labels
-}
 
 # Output correlation
 
@@ -118,6 +105,8 @@ def features_correlation_drop():
         for region, score in scores.items()
     }
 
+    epigenomes['enhancers'].to_csv('./pre_processed_dataset/epigenomes_enhancers.csv')  
+    epigenomes['promoters'].to_csv('./pre_processed_dataset/epigenomes_promoters.csv') 
     return scores
 
 scores = features_correlation_drop()        

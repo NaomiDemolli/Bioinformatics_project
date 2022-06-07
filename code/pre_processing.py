@@ -1,19 +1,10 @@
 import pandas as pd
 from sklearn.impute import KNNImputer
 from sklearn.preprocessing import RobustScaler
-
-from epigenomic_dataset import active_enhancers_vs_inactive_enhancers
-from epigenomic_dataset import active_promoters_vs_inactive_promoters
+from retrieve_preprocessed_dataset import retrieve_epigenomes_labels
 
 # retrieve data
-
-enhancers, enhancers_labels = active_enhancers_vs_inactive_enhancers(cell_line='A549')
-promoters, promoters_labels = active_promoters_vs_inactive_promoters(cell_line='A549')
-
-epigenomes = {
-    "promoters": promoters,
-    "enhancers": enhancers
-}
+epigenomes, labels = retrieve_epigenomes_labels()
 
 def rate_samples_features(epigenomes:dict):
     for region, x in epigenomes.items():
@@ -22,7 +13,6 @@ def rate_samples_features(epigenomes:dict):
         )
         print("-"*80)
 
-
 def knn_imputer(df:pd.DataFrame, neighbours:int=5)->pd.DataFrame:
     return pd.DataFrame(
         KNNImputer(n_neighbors=neighbours).fit_transform(df.values),
@@ -30,12 +20,10 @@ def knn_imputer(df:pd.DataFrame, neighbours:int=5)->pd.DataFrame:
         index=df.index
     )        
 
-
 def drop_constant_features(df:pd.DataFrame)->pd.DataFrame:
     """Return DataFrame without constant features."""
     return df.loc[:, (df != df.iloc[0]).any()]
     
-
 def robust_zscoring(df:pd.DataFrame)->pd.DataFrame:
     #  Usiamo robust_scaler (sottraendo la mediana, non sensibile agli outlier, e dividendo per la sd tra il primo e il terzo quartile,
     #  è una versione migliore di z-scoring 
@@ -44,7 +32,6 @@ def robust_zscoring(df:pd.DataFrame)->pd.DataFrame:
         columns=df.columns,
         index=df.index
     )
-
 
 def pre_processing(epigenomes):
     rate_samples_features(epigenomes)
@@ -69,7 +56,6 @@ def pre_processing(epigenomes):
 
     print('Nan values replaced with KNN imputation') 
     print("-"*80)   
-
 
     # Drop constant features
      

@@ -1,18 +1,11 @@
 from epigenomic_dataset import active_enhancers_vs_inactive_enhancers
 from epigenomic_dataset import active_promoters_vs_inactive_promoters
 import matplotlib.pyplot as plt
-
+from retrieve_preprocessed_dataset import retrieve_epigenomes_labels
 
 # retrieve data 
 
-enhancers, enhancers_labels = active_enhancers_vs_inactive_enhancers(cell_line='A549')
-promoters, promoters_labels = active_promoters_vs_inactive_promoters(cell_line='A549')
-
-labels = {
-    "promoters": promoters_labels,
-    "enhancers": enhancers_labels
-}
-
+epigenomes, labels = retrieve_epigenomes_labels()
 
 # plot labels distribution
 
